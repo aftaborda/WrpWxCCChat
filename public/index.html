@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal IT | Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="login-page">
+    <main class="login-container">
+      <section class="login-card">
+        <div class="brand">
+          <div class="brand-icon">IT</div>
+          <h1>Portal IT</h1>
+        </div>
+
+        <div class="login-content">
+          <span class="eyebrow">SECURE ACCESS</span>
+          <h2>Welcome back</h2>
+          <p>Enter your employee ID to access the Portal IT platform.</p>
+          <p class="user-language">
+            1000 - 1003 = en-GB; 1004 - 1006 = es-ES; 1007 - 1010 = pt-PT.
+          </p>
+
+          <form id="loginForm">
+            <div class="form-row">
+              <label for="userId">Employee ID</label>
+              <input
+                type="text"
+                id="userId"
+                placeholder="Enter your ID"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="show-widget">Widget visible</label>
+              <input
+                type="checkbox"
+                name="show-widget"
+                id="show-widget"
+                checked
+              />
+            </div>
+
+            <p id="loginError" class="error-message"></p>
+
+            <button type="submit" class="btn btn-primary">
+              Sign in
+              <span>→</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="login-footer">
+          <span>Portal IT</span>
+          <span>Demo Environment</span>
+        </div>
+      </section>
+
+      <aside class="login-visual">
+        <div class="visual-content">
+          <span class="eyebrow">ENTERPRISE PLATFORM</span>
+          <h2>Technology.<br />Visibility.<br />Control.</h2>
+          <p>
+            Access systems, operational information and business insights from
+            one centralized platform.
+          </p>
+
+          <div class="visual-stats">
+            <div>
+              <strong>99.98%</strong>
+              <span>Availability</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Monitoring</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>

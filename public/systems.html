@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal IT | Systems</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="app-page">
+    <header class="topbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-icon">IT</span>
+        <span>Portal IT</span>
+      </a>
+
+      <div class="user-area">
+        <div class="user-info">
+          <span class="user-name" id="userName"></span>
+          <span class="user-id" id="userIdDisplay"></span>
+          <!-- span class="user-language" id="userLanguage"></span -->
+        </div>
+        <span>
+          <img
+            id="country-flag"
+            src="https://flagcdn.com/32x24/pt.png"
+            width="32"
+            height="24"
+            alt="Country"
+          />
+        </span>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span> Dashboard
+          </a>
+          <a href="systems.html" class="nav-link active">
+            <span>◈</span> Systems
+          </a>
+          <a href="reports.html" class="nav-link"> <span>▤</span> Reports </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-dot"></span>
+          All services operational
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <span class="eyebrow">INFRASTRUCTURE</span>
+            <h1>Systems Overview</h1>
+            <p>Monitor the current status and performance of core services.</p>
+          </div>
+        </div>
+
+        <section class="system-summary">
+          <div class="health-card">
+            <div>
+              <span class="eyebrow">OVERALL STATUS</span>
+              <h2>All systems operational</h2>
+              <p>No critical incidents detected.</p>
+            </div>
+
+            <div class="health-score">
+              <strong>98</strong>
+              <span>Health Score</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <h2>Core services</h2>
+              <p>Live status of the main platform components.</p>
+            </div>
+          </div>
+
+          <div class="systems-table">
+            <div class="system-row table-header">
+              <span>Service</span>
+              <span>Status</span>
+              <span>Availability</span>
+              <span>Last Check</span>
+            </div>
+
+            <div class="system-row">
+              <strong>Authentication Service</strong>
+              <span><span class="badge operational">Operational</span></span>
+              <span>99.99%</span>
+              <span>2 minutes ago</span>
+            </div>
+
+            <div class="system-row">
+              <strong>Core API Gateway</strong>
+              <span><span class="badge operational">Operational</span></span>
+              <span>99.98%</span>
+              <span>1 minute ago</span>
+            </div>
+
+            <div class="system-row">
+              <strong>Data Processing Engine</strong>
+              <span><span class="badge operational">Operational</span></span>
+              <span>99.95%</span>
+              <span>3 minutes ago</span>
+            </div>
+
+            <div class="system-row">
+              <strong>Reporting Platform</strong>
+              <span><span class="badge maintenance">Maintenance</span></span>
+              <span>99.72%</span>
+              <span>5 minutes ago</span>
+            </div>
+
+            <div class="system-row">
+              <strong>Notification Service</strong>
+              <span><span class="badge operational">Operational</span></span>
+              <span>99.99%</span>
+              <span>Just now</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <h2>Infrastructure metrics</h2>
+              <p>Current resource utilization.</p>
+            </div>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <div class="metric-top">
+                <span>CPU Usage</span>
+                <strong>42%</strong>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 42%"></div>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-top">
+                <span>Memory Usage</span>
+                <strong>67%</strong>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 67%"></div>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <div class="metric-top">
+                <span>Storage Usage</span>
+                <strong>54%</strong>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 54%"></div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      id="divicw"
+      style="display: none"
+      data-bind="7B8BBB54-06BD-45D8-95C2-6982BE6A366F"
+      data-org=""
+      data-guid="51134393-2fe7-4a89-8ebb-f9292704d3e9"
+    ></div>
+    <script>
+      var i = {
+        t: function () {
+          try {
+            var e = document.getElementById("divicw"),
+              t = document.createElement("script");
+            ((t.src =
+              "https://chat-widget.prodeu2.ciscoccservice.com/js/imichatinit.js?t=" +
+              new Date().toISOString()),
+              e.insertAdjacentElement("afterend", t),
+              t.addEventListener("load", function () {
+                console.log(
+                  new Date().toISOString(),
+                  "Livechat script loaded successfully!",
+                );
+              }),
+              t.addEventListener("error", function () {
+                console.log(
+                  new Date().toISOString(),
+                  "Error loading Livechat script",
+                );
+                i.o(e);
+              }));
+          } catch (e) {
+            console.error(e);
+          }
+        },
+        o: function (e) {
+          e.insertAdjacentHTML(
+            "afterend",
+            '<iframe id="tls_al_frm" frameborder="0" style="overflow:hidden;height:208px;width:394px;position:fixed;display:block;right:48px;bottom:12px;z-index:99999;display:none;"></iframe>',
+          );
+          var t = document.getElementById("tls_al_frm"),
+            n = t.contentWindow,
+            d = n.document;
+          d.open();
+          d.write(
+            "<!doctype html><html><head><meta charset='utf-8'><title>Untitled Document</title><style>body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#99a0b0;font-size:14px}.popover__content{background-color:#fbfbfe;padding:1.5rem;border-radius:5px;width:300px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.26);position:relative}.popover__message{font-weight:600;color:#56627c;font-size:16px}.pull-left{float:left}.clearfix{clear:both}.hdr-txt{width:218px;margin-top:3px}.para-txt a{text-decoration:none;color:#005cde}.close-btn{position:absolute;right:15px;top:15px}.close-btn a{text-decoration:none;font-weight:400;color:#56627c;font-size:16px}</style></head><body><div class='popover__content'><div class='close-btn'><a href='#' onclick='closeTLSAlert()'>X</a></div><div class='popover__message'><div class='pull-left hdr-txt'>This browser version is not supported on LiveChat.</div></div><div class='clearfix'></div><p class='para-txt'>Please update your browser to the latest version and re-open the website to access the widget.</p></div><script>function closeTLSAlert(){window.parent.postMessage({key:'close_tls_alert',value:'close_tls_alert',action:'close_tls_alert'},'*');}<\/script></body></html>",
+          );
+          d.close();
+          t.style.display = "block";
+          window.addEventListener("message", function (e) {
+            "close_tls_alert" === e.data.action && i.s();
+          });
+        },
+        s: function () {
+          var e = document.getElementById("tls_al_frm");
+          e && e.remove();
+        },
+      };
+      i.t();
+    </script>
+  </body>
+</html>

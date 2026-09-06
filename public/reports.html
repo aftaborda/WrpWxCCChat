@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal IT | Reports</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="app-page">
+    <header class="topbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-icon">IT</span>
+        <span>Portal IT</span>
+      </a>
+
+      <div class="user-area">
+        <div class="user-info">
+          <span class="user-name" id="userName"></span>
+          <span class="user-id" id="userIdDisplay"></span>
+          <!-- span class="user-language" id="userLanguage"></span -->
+        </div>
+        <span>
+          <img
+            id="country-flag"
+            src="https://flagcdn.com/32x24/pt.png"
+            width="32"
+            height="24"
+            alt="Country"
+          />
+        </span>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html" class="nav-link">
+            <span>▦</span> Dashboard
+          </a>
+          <a href="systems.html" class="nav-link"> <span>◈</span> Systems </a>
+          <a href="reports.html" class="nav-link active">
+            <span>▤</span> Reports
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-dot"></span>
+          All services operational
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <span class="eyebrow">ANALYTICS</span>
+            <h1>Reports & Analytics</h1>
+            <p>Review key performance indicators and operational trends.</p>
+          </div>
+
+          <button class="btn btn-primary small-btn">Export Report</button>
+        </div>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-label">Total Requests</span>
+            <strong>2.4M</strong>
+            <small class="positive">↑ 12.5% vs previous period</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Avg. Response Time</span>
+            <strong>184 ms</strong>
+            <small class="positive">↓ 14 ms improvement</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Resolved Incidents</span>
+            <strong>98.7%</strong>
+            <small class="positive">Above target</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">SLA Compliance</span>
+            <strong>99.4%</strong>
+            <small class="positive">Target achieved</small>
+          </article>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <h2>Performance trend</h2>
+              <p>System activity during the last seven days.</p>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="fake-chart">
+              <div class="chart-bars">
+                <div class="bar" style="height: 45%"><span>Mon</span></div>
+                <div class="bar" style="height: 62%"><span>Tue</span></div>
+                <div class="bar" style="height: 52%"><span>Wed</span></div>
+                <div class="bar" style="height: 78%"><span>Thu</span></div>
+                <div class="bar" style="height: 68%"><span>Fri</span></div>
+                <div class="bar" style="height: 88%"><span>Sat</span></div>
+                <div class="bar" style="height: 73%"><span>Sun</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <h2>Available reports</h2>
+              <p>Recently generated reports and summaries.</p>
+            </div>
+          </div>
+
+          <div class="report-list">
+            <div class="report-item">
+              <div class="report-icon">PDF</div>
+              <div class="report-info">
+                <strong>Monthly Infrastructure Summary</strong>
+                <span>Generated today · 2.4 MB</span>
+              </div>
+              <button class="secondary-btn">View</button>
+            </div>
+
+            <div class="report-item">
+              <div class="report-icon">XLS</div>
+              <div class="report-info">
+                <strong>System Performance Metrics</strong>
+                <span>Generated yesterday · 1.8 MB</span>
+              </div>
+              <button class="secondary-btn">View</button>
+            </div>
+
+            <div class="report-item">
+              <div class="report-icon">PDF</div>
+              <div class="report-info">
+                <strong>Incident Management Report</strong>
+                <span>Generated Aug 18 · 3.1 MB</span>
+              </div>
+              <button class="secondary-btn">View</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      id="divicw"
+      data-bind="7B8BBB54-06BD-45D8-95C2-6982BE6A366F"
+      data-org=""
+      data-guid="51134393-2fe7-4a89-8ebb-f9292704d3e9"
+    ></div>
+    <script>
+      var cookieConsentWidgetOptions = {
+        buttonType: "type1",
+        widgetColor: "#403090",
+        logoPath:
+          "https://companieslogo.com/img/orig/SNX-e4f20926.png?t=1720244494",
+        displayName: "WxCC - TDSynnex Lab",
+        greetingMessage: "",
+        bylineText: "Welcome",
+        cookiePreferencesHeaderText: "Cookie Preferences",
+        privacyPolicyText: "Privacy Policy",
+        privacyPolicyUrl: "",
+        acceptButtonText: "Accept Cookies",
+        rejectButtonText: "Reject",
+        cookieConsentMessage:
+          "We use cookies to help secure, provide, and improve our services. You agree to consent to cookies to continue using LiveChat. If you reject cookies, you'll no longer be able to use LiveChat for support or continue any interactions. You can manage cookie preferences at any time.",
+        rejectConfirmationMessage:
+          "By not accepting cookies you won't be able to get support via this widget. You can change preferences at any time and consent to continue.",
+        rejectRevokeButtonText: "Cookie preferences",
+        continueAcceptingCookiesText: "Continue",
+      };
+      var i = {
+        t: function () {
+          try {
+            var e = document.getElementById("divicw"),
+              t = document.createElement("script");
+            ((t.src =
+              "https://chat-widget.prodeu2.ciscoccservice.com/js/imichatinit.js?t=" +
+              new Date().toISOString()),
+              e.insertAdjacentElement("afterend", t),
+              t.addEventListener("load", function () {
+                console.log(
+                  new Date().toISOString(),
+                  "Livechat script loaded successfully!",
+                );
+              }),
+              t.addEventListener("error", function () {
+                console.log(
+                  new Date().toISOString(),
+                  "Error loading Livechat script",
+                );
+                i.o(e);
+              }));
+          } catch (e) {
+            console.error(e);
+          }
+        },
+        o: function (e) {
+          e.insertAdjacentHTML(
+            "afterend",
+            '<iframe id="tls_al_frm" frameborder="0" style="overflow:hidden;height:208px;width:394px;position:fixed;display:block;right:48px;bottom:12px;z-index:99999;display:none;"></iframe>',
+          );
+          var t = document.getElementById("tls_al_frm"),
+            n = t.contentWindow,
+            d = n.document;
+          d.open();
+          d.write(
+            "<!doctype html><html><head><meta charset='utf-8'><title>Untitled Document</title><style>body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#99a0b0;font-size:14px}.popover__content{background-color:#fbfbfe;padding:1.5rem;border-radius:5px;width:300px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.26);position:relative}.popover__message{font-weight:600;color:#56627c;font-size:16px}.pull-left{float:left}.clearfix{clear:both}.hdr-txt{width:218px;margin-top:3px}.para-txt a{text-decoration:none;color:#005cde}.close-btn{position:absolute;right:15px;top:15px}.close-btn a{text-decoration:none;font-weight:400;color:#56627c;font-size:16px}</style></head><body><div class='popover__content'><div class='close-btn'><a href='#' onclick='closeTLSAlert()'>X</a></div><div class='popover__message'><div class='pull-left hdr-txt'>This browser version is not supported on LiveChat.</div></div><div class='clearfix'></div><p class='para-txt'>Please update your browser to the latest version and re-open the website to access the widget.</p></div><script>function closeTLSAlert(){window.parent.postMessage({key:'close_tls_alert',value:'close_tls_alert',action:'close_tls_alert'},'*');}<\/script></body></html>",
+          );
+          d.close();
+          t.style.display = "block";
+          window.addEventListener("message", function (e) {
+            "close_tls_alert" === e.data.action && i.s();
+          });
+        },
+        s: function () {
+          var e = document.getElementById("tls_al_frm");
+          e && e.remove();
+        },
+      };
+      i.t();
+    </script>
+  </body>
+</html>
