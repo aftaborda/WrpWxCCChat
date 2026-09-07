@@ -1,4 +1,9 @@
 let chatWidget = null;
+let numChatAvailable = 0;
+
+const page = window.location.pathname.split("/").pop();
+const isBot = page == "systems.html" ? true : false;
+
 const users = {
   1000: {
     id: "1000",
@@ -82,7 +87,7 @@ const users = {
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-  loginForm.addEventListener("submit", function (event) {
+  loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const userId = document.getElementById("userId").value.trim();
@@ -208,15 +213,89 @@ function hideWidget() {
   setShowWidget(false);
 }
 
+async function getAgentsAvailability() {
+  // http://localhost:3000/wxcc/channels?type=all
+  const result = await fetch("/wxcc/channels");
+
+  const jsonResult = await result.json();
+  if (!result.ok)
+    return {
+      type: "UNKNOWN",
+      agents: 0,
+      telephony: 0,
+      email: 0,
+      chat: 0,
+      social: 0,
+    };
+
+  return jsonResult;
+}
+
+function setAgentStats(availability, agAvailElem) {
+  const availResult = document.getElementById("avail-result");
+  if (availResult) availResult.innerText = availability.type;
+  agAvailElem.innerHTML = availability.agents;
+  if (availability.agents > 0) {
+    agAvailElem.classList.remove("neutral");
+    agAvailElem.classList.add("positive");
+    availResult?.classList.remove("neutral");
+    availResult?.classList.add("positive");
+    if (availResult) availResult.innerText = "OK";
+  } else {
+    agAvailElem.classList.remove("positive");
+    agAvailElem.classList.add("neutral");
+    availResult?.classList.remove("positive");
+    availResult?.classList.add("neutral");
+    if (availResult) availResult.innerText = "No agents";
+  }
+
+  numChatAvailable = availability.chat;
+  const chatAvail = document.getElementById("chat-avail");
+  if (chatAvail) {
+    chatAvail.innerText = availability.chat;
+    const availChatResult = document.getElementById("chat-avail-result");
+    if (availChatResult) availChatResult.innerText = availability.type;
+
+    if (availability.chat > 0) {
+      chatAvail.classList.remove("neutral");
+      chatAvail.classList.add("positive");
+      availChatResult?.classList.remove("neutral");
+      availChatResult?.classList.add("positive");
+      if (availChatResult) availChatResult.innerText = "OK";
+    } else {
+      chatAvail.classList.remove("positive");
+      chatAvail.classList.add("neutral");
+      availChatResult?.classList.remove("positive");
+      availChatResult?.classList.add("neutral");
+      if (availChatResult) availChatResult.innerText = "No chat availability";
+    }
+  }
+}
+
 if (!loginForm) {
   displayUser();
 }
 
-(function () {
+(async function () {
   let attempts = 0;
   const maxAttempts = 50;
-  const CLIENT_ID = process.env.WEBEX_ACCESS_TOKEN;
-  console.log("id", CLIENT_ID);
+
+  const checkAvailability = setInterval(async () => {
+    const agAvailElem = document.getElementById("ag-avail");
+    if (agAvailElem) {
+      const availability = await getAgentsAvailability(agAvailElem);
+      console.log("checkAvailability:", availability);
+      if (availability.chat < 1 && !isBot) {
+        hideWidget();
+      } else {
+        showWidget();
+      }
+      setAgentStats(availability, agAvailElem);
+    } else {
+      console.log("checkAvailability canceled");
+      clearInterval(checkAvailability);
+    }
+  }, 3000); // Executa a verificação a cada 3 segundos
 
   const checkWidget = setInterval(() => {
     attempts++;
@@ -239,10 +318,6 @@ if (!loginForm) {
     const user = loadUser();
 
     if (!user) return;
-
-    const page = window.location.pathname.split("/").pop();
-
-    const isBot = page == "systems.html" ? true : false;
 
     console.log(
       `[Custom Integration] update widget for user ${user.id} in page ${page} with isBot = ${isBot}`,

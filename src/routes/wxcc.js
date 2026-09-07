@@ -1,12 +1,19 @@
 import express from "express";
+
+import { fetchChatAgentsAvailable } from "../controllers/agents-available.js";
+
 const wxccRouter = express.Router();
 
-const WEBEXAPIS = process.env.WEBEX_APIS_V1;
-const WEBEX_API_SERVER = process.env.WEBEX_API_SERVER;
-
-/* GET users listing. */
-wxccRouter.get("/", function (req, res, next) {
-  res.send(`WEBEXAPIS: ${WEBEXAPIS}, WEBEX_API_SERVER: ${WEBEX_API_SERVER}`);
+/* GET channels availability. */
+wxccRouter.get("/channels", async function (req, res, next) {
+  const channel = req.query?.type ?? "all";
+  const agentsAvailability = await fetchChatAgentsAvailable(channel);
+  if (agentsAvailability.type == "NOK") {
+    res.status(422).json(agentsAvailability);
+  } else {
+    res.status(200).json(agentsAvailability);
+  }
+  return;
 });
 
 export { wxccRouter };
