@@ -285,7 +285,7 @@ if (!loginForm) {
     if (agAvailElem) {
       const availability = await getAgentsAvailability(agAvailElem);
       console.log("checkAvailability:", availability);
-      if (availability.chat < 1 && !isBot && !chatWidget.hasInitiatedChat()) {
+      if (availability.chat < 1 && !isBot) {
         hideWidget();
       } else {
         showWidget();
